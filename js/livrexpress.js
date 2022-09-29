@@ -6,7 +6,7 @@
 
 window.addEventListener("load", function() {
     window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnnee, PrimeFinAnneeSansAccidents);
-    
+    window.document.querySelector("#btn_envoyer").addEventListener("click", afficheElem);
     window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnneeSansAccidents);
     });
     
@@ -23,6 +23,17 @@ function recupValeur(id){
     else{
         return valeur;
     }
+}
+
+function afficheElem(){
+    let display;
+    if(recupValeur("#lst_nbAccident")===0){
+        display = "none";
+    }
+    else{
+        display = "block";
+    }
+    return elem= window.document.querySelector("#aipaslseumfrero").style.display = display;
 }
 
 function PrimeAnciennete(annee){
