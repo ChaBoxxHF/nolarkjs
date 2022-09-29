@@ -5,14 +5,32 @@
 
 
 window.addEventListener("load", function() {
-    window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnnee);
+    window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnnee, PrimeFinAnneeSansAccidents);
+    
+    window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnneeSansAccidents);
     });
+    
+function recupValeur(id){
+    var valeur = parseInt(window.document.querySelector(id).value);
+    if (isNaN(valeur)){
+        window.document.querySelector(id).value=0;
+        return 0;
+    }
+    else if (valeur<0){
+        window.document.querySelector(id).value=0;
+        return 0;
+    }
+    else{
+        return valeur;
+    }
+}
 
 function PrimeAnciennete(annee){
     const annee4=300;
     const anneesupp=30;
     const debutprime=4;
     let resultat=0;
+    if (annee>=0){
     if (annee>=debutprime){
         resultat+=annee4;
         if(annee>=debutprime){
@@ -20,19 +38,28 @@ function PrimeAnciennete(annee){
         }
     }
     return resultat;
+    }
+    else{
+        throw "Un nombre négatif à été entré !";
+    }
 }
 
 function PrimeKilometre(km){
     const plafond = 900;
     const prixKm = 0.01;
     let resultat=0;
-    if(km*prixKm<plafond){
-        resultat=km*prixKm;
+    if (km>=0){
+        if(km*prixKm<plafond){
+            resultat=km*prixKm;
+        }
+        else{
+            resultat=plafond;
+        }
+        return resultat;
     }
     else{
-        resultat=plafond;
+        throw "Un nombre négatif à été entré !"
     }
-    return resultat;
 }
 
 function PrimeTotale(km,annee){
@@ -40,9 +67,9 @@ function PrimeTotale(km,annee){
 }
 
 function PrimeFinAnnee(){
-    let nbAccident = parseInt(document.querySelector("#lst_nbAccident").value);
-    let nbKm = document.querySelector("#nbKm").value;
-    let anciennete = document.querySelector("#anciennete").value;
+    let nbAccident = recupValeur("#lst_nbAccident");
+    let nbKm = recupValeur("#nbKm");
+    let anciennete = recupValeur("#anciennete");
     
     
     let primeFinale = PrimeTotale(nbKm,anciennete);
@@ -60,4 +87,12 @@ function PrimeFinAnnee(){
     }
     document.querySelector("#resultSimu").innerHTML = primeFinale;
     return primeFinale;
+}
+
+function PrimeFinAnneeSansAccidents(){
+    let nbKm = recupValeur("#nbKm");
+    let anciennete = recupValeur("#anciennete");
+    
+    document.querySelector("#siNoAccident").innerHTML = PrimeTotale(nbKm,anciennete);
+    return PrimeTotale(nbKm,anciennete);
 }
