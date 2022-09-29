@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <link href="../css/styles.css" rel="stylesheet" type="text/css">
         <link href="../css/contact.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="../favicon.ico">
-        <script src="../js/remunerationv2"></script>
+        <script src="../js/livrexpress.js"></script>
         <!--<script src="../js/nolark.js"></script>-->
     </head>
     <body>
@@ -44,36 +44,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             </nav>
         </header>
         
-        
         <section id="contact">
-            <h1>Simulateur de rémunération</h1>
+            <h1>Simulateur de Prime de fin d'année</h1>
             <form name="form_contact" action="http://gil83.fr/nolark/testforms.php" method="POST">
                 <fieldset id="coordo">
-                    <legend>Pour mieux vous connaître</legend>
+                    <legend>Zone de calcul de la prime</legend>
+                    <div><label for="anciennete">Depuis combien de temps êtes vous chez livrexpress ?</label><input type="number" name="anciennete" id="anciennete"></div>
+                    <div><label for="nbKm">Combien de Kilomètre avez vous parcourus cette année ?</label><input type="number" name="nbKm" id="nbKm"></div>
                     <div>
-                        <label for="lst_nbAncien">Vous êtes : </label>
-                        <select name="lst_nbAncien" id="lst_nbAncien">
-                            <option value="1">Ancienneté inferieur à 5</option>
-                            <option value="2">Ancienneté comprise entre 5 et 10</option>
-                            <option value="3">Ancienneté supérieur a 10</option>
+                        <label for="lst_nbAccident">Vous avez fait : </label>
+                        <select name="lst_nbAccident" id="lst_nbAccident">
+                            <option value="1">Aucun Accident</option>
+                            <option value="2">1 accident</option>
+                            <option value="3">2 accidents</option>
+                            <option value="4">3 accidents</option>
+                            <option value="5">Plus de 3 accidents</option>
                         </select>
-<!--                        <label for="lst_typeclient">ancienneté</label><input type="number" name="nbAncien" id="num_XSpirit">-->
                     </div>
-<!--                    <div><label for="i_nom">Nombre de casques X-Spirit vendus</label> <input type="text" name="i_nom" id="i_nom" size="35" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\-]+$" required><div class="input-validation"></div></div>
-                    <div><label for="i_prenom">Nombre de casques Multitec vendus</label> <input type="text" name="i_prenom" id="i_prenom" size="35" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\-]+$" required><div class="input-validation"></div></div>
-                    <div><label for="i_email">Nombre de casques S 20 vendus</label> <input type="email" name="i_email" id="i_email" size="35" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><div class="input-validation"></div></div>-->
-                    <div><label for="num_XSpirit">Nombre de casques X-Spirit vendus</label><input type="number" name="num_XSpirit" id="num_XSpirit"></div>
-                    <div><label for="num_XSpirit">Nombre de casques Multitec vendus</label><input type="number" name="num_Multitec" id="num_Multitec"></div>
-                    <div><label for="num_XSpirit">Nombre de casques S 20 vendus</label><input type="number" name="num_S20" id="num_S20"></div>
-                    
                 </fieldset>
                 <div id="controles"><input type="button" id="btn_envoyer" name="sub_envoyer" value="Effectuer le calcul"> <input type="reset" name="rst_annuler" value="Effacer les réponses"></div>
             </form>
         </section>
+        
         <section>
             <p>fensiofjifes <span id="resultSimu"></span> €</p>
         </section>
-        
         
         <footer>
             <p>&copy;2018 Nolark - Créé par <a href="mailto:jose.gil@ac-nice.fr">José GIL</a><p>
