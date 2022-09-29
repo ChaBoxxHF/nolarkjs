@@ -37,11 +37,15 @@ function calccomS(nbventeS){
 }
     
 function calccomM(nbventeM){
-    let comM = (prixM*nbventeM)/25;
-    if(nbventeM>20){
-        comM = comM + (prixM*(nbventeM - 20))/(100/6);
+    let comM;
+    if(nbventeM<20){
+        comM = (prixM*nbventeM)/25;
+    }
+    else if(nbventeM>20){
+        comM = ((prixM*(nbventeM - 20))/(100/6))+ ((prixM*0.04)*20);
+        
         if(nbventeM > 50){
-            comM = comM + (prixM*(nbventeM - 50))/(10);
+            comM = comM + (prixM*(nbventeM - 50))/(10); //pas bon
         }
     }
     return comM;
