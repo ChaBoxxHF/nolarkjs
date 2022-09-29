@@ -55,20 +55,20 @@ function calccomXS(nbventeXS){
 }
 
 function PrimeAnciennete(fixe){
-        let salaireAncien;
-        const ancienSup10=1.06;
-        const ancienInf10Sup5=1.03;
-        switch(parseInt(document.querySelector("#lst_nbAncien").value)){
-            case 1:
-                salaireAncien = fixe;
-                break;
-            case 2:
-                salaireAncien=fixe * ancienInf10Sup5;
-                break;
-            case 3:
-                salaireAncien=fixe*ancienSup10;
-                break;
-        }
-        return salaireAncien;
+    let salaireAncien;
+    const ancienSup10=1.06;
+    const ancienInf10Sup5=1.03;
+    switch(parseInt(document.querySelector("#lst_nbAncien").value)){
+        case 1:
+            salaireAncien = fixe;
+            break;
+        case 2:
+            salaireAncien=fixe * ancienInf10Sup5;
+            break;
+        case 3:
+            salaireAncien=fixe*ancienSup10;
+            break;
     }
+    return salaireAncien;
+}
 
