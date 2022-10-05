@@ -5,9 +5,11 @@
 
 
 window.addEventListener("load", function() {
-    window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnnee, PrimeFinAnneeSansAccidents);
+    window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnnee);
     window.document.querySelector("#btn_envoyer").addEventListener("click", afficheElem);
     window.document.querySelector("#btn_envoyer").addEventListener("click", PrimeFinAnneeSansAccidents);
+    window.document.querySelector("#btn_cancel").addEventListener("click",hideElem);
+    window.document.querySelector("#btn_cancel").addEventListener("click",resetPrime);
     });
     
 function recupValeur(id){
@@ -33,7 +35,15 @@ function afficheElem(){
     else{
         display = "block";
     }
-    return elem= window.document.querySelector("#aipaslseumfrero").style.display = display;
+    return window.document.querySelector("#aipaslseumfrero").style.display = display;
+}
+
+function hideElem(){
+    return window.document.querySelector("#aipaslseumfrero").style.display = "none";
+}
+
+function resetPrime(){
+    return document.querySelector("#resultSimu").innerHTML = 0;
 }
 
 function PrimeAnciennete(annee){
