@@ -27,7 +27,7 @@ function recupValeur(id){
 
 function afficheElem(){
     let display;
-    if(recupValeur("#lst_nbAccident")===0){
+    if(recupValeur("#lst_nbAccident")===1){
         display = "none";
     }
     else{
